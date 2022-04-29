@@ -7,10 +7,13 @@
 </head>
 <body>
   <!-- HTML goes here -->
-
+  <button class="button">Click me please!</button>
   <script>
     // JavaScript goes here
-
+    const button = document.querySelector('.button')
+    button.addEventListener('click', function(e) {
+      console.log(`clientX: ${e.clientX}, clientY ${e.clientY}`)
+    })
   </script>
 </body>
 </html>

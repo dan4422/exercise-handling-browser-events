@@ -10,10 +10,10 @@
   <h1>Things to Buy</h1>
 
   <ul id="shoppingList">
-    <li>Waffles</li>
-    <li>Pancakes</li>
-    <li>Bacon</li>
-    <li>Eggs</li>
+    <li class="items">Waffles</li>
+    <li class="items">Pancakes</li>
+    <li class="items">Bacon</li>
+    <li class="items">Eggs</li>
   </ul>
 
   <form id="newItemForm">
@@ -23,9 +23,49 @@
     <button type="submit" id="addButton">Add</button>
   </form>
 
+
   <script>
     // JavaScript goes here
+    const itemForm = document.querySelector('#newItemForm')
+    const addButton = document.querySelector('#addButton')
+    const item = document.querySelector('#item')
+    const list = document.querySelector('#shoppingList')
     
+    let listItems = document.querySelectorAll('.items')
+    // adds a remove button for the existing list
+    for (let i = 0; i < listItems.length; i++) {
+      const removeButton = document.createElement('button')
+      removeButton.innerText = "X"
+      removeButton.classList.add('remove')
+      listItems[i].appendChild(removeButton)
+    }
+    
+    // adds new items
+    itemForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+      addedItem = document.createElement('li')
+      addedItem.classList.add("items")
+      addedItem.innerText = item.value
+      list.appendChild(addedItem)
+      item.value = ''
+      // itemForm.reset()
+      // every time it is submitted. it query selects all the items again
+      let listItems = document.querySelectorAll('.items')
+      const removeButton = document.createElement('button')
+      removeButton.classList.add('remove')
+      removeButton.innerText = "X"
+      // goes through each item in list and adds the remove button
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].appendChild(removeButton)
+      }
+      // removes the item if the remove button is clicked on
+      const removeButtons = document.querySelectorAll('.remove')
+      for (let i=0; i < removeButtons.length; i++) {
+        removeButtons[i].addEventListener('click', (e) => {
+          listItems[i].remove()
+        })
+      }
+    })
   </script>
 </body>
 </html>

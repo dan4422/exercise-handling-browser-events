@@ -15,7 +15,37 @@
       <br>
       <input type="text" name="animal" id="animal">
     </p>
-    <button type="submit">Do the MadLib!</button>
+    <p class="form-group">
+      <label for="country">Country</label>
+      <br>
+      <input type="text" name="country" id="country">
+    </p>
+    <p class="form-group">
+      <label for="pluralNoun">pluralNoun</label>
+      <br>
+      <input type="text" name="pluralNoun" id="pluralNoun">
+    </p>
+    <p class="form-group">
+      <label for="food">food</label>
+      <br>
+      <input type="text" name="food" id="food">
+    </p>
+    <p class="form-group">
+      <label for="device">device</label>
+      <br>
+      <input type="text" name="device" id="device">
+    </p>
+    <p class="form-group">
+      <label for="noun">noun</label>
+      <br>
+      <input type="text" name="noun" id="noun">
+    </p>
+    <p class="form-group">
+      <label for="adjective">adjective</label>
+      <br>
+      <input type="text" name="adjective" id="adjective">
+    </p>
+    <button class="madLibButton" type="submit">Do the MadLib!</button>
   </form>
   
   <div id="madLibStory" style="display: none">
@@ -40,6 +70,48 @@
 
   <script>
     // JavaScript goes here
+    // Grabbing the input elements by ID
+    const animalID = document.querySelector('#animal')
+    const countryID = document.querySelector('#country')
+    const pluralNounID = document.querySelector('#pluralNoun')
+    const foodID = document.querySelector('#food')
+    const deviceID = document.querySelector('#device')
+    const nounID = document.querySelector('#noun')
+    const adjectiveID = document.querySelector('#adjective')
+    
+    // Grabbing the span's inside the story elements
+    const animal = document.querySelectorAll('.animal')
+    const country = document.querySelectorAll('.country')
+    const pluralNoun = document.querySelectorAll('.pluralNoun')
+    const food = document.querySelectorAll('.food')
+    const device = document.querySelectorAll('.device')
+    const noun = document.querySelectorAll('.noun')
+    const adjective = document.querySelectorAll('.adjective')
+
+    const madLibStory = document.querySelector('#madLibStory')
+    const madLibButton = document.querySelector('.madLibButton')
+    const madLibForm = document.querySelector('#madLibForm')
+    const restartButton = document.querySelector('#restart')
+    const listOfID = [animalID,countryID,pluralNounID,foodID,deviceID,nounID,adjectiveID]
+    const listOfWords = [animal,country,pluralNoun,food,device,noun,adjective]
+
+    madLibButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      madLibForm.style.display = "none"
+      madLibStory.style.display = "block"
+      for (let i=0; i < listOfWords.length; i++) {
+        for (let j=0; j < listOfWords[i].length; j++)
+          listOfWords[i][j].innerText = listOfID[i].value
+    }})
+
+    restartButton.addEventListener('click', (e) => {
+      madLibStory.style.display = "none"
+      madLibForm.style.display = "block"
+      for (let i=0; i < listOfID.length; i++) {
+        listOfID[i].value = ""
+      }
+    })
+
 
   </script>
 </body>

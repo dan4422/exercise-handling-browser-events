@@ -7,10 +7,32 @@
 </head>
 <body>
   <!-- HTML goes here -->
-
+  <h1 style = "font-size: 100px;" class="number">10</h1>
+  <button class="positive">+</button>
+  <button class="minus">-</button>
   <script>
     // JavaScript goes here
+    const positive = document.querySelector(".positive")
+    const minus = document.querySelector(".minus")
+    let number = document.querySelector(".number")
+    let clicks = parseInt(number.innerText)
 
+
+    positive.addEventListener("click", function(e) {
+      number.innerText ++
+    })
+    minus.addEventListener("click", function(e) {
+      number.innerText --
+    })
+    // positive.addEventListener("click", function(e) {
+    //   clicks ++
+    //   number.innerText = clicks
+    // })
+
+    // minus.addEventListener("click", function(e) {
+    //   clicks --
+    //   number.innerText = clicks
+    // })
   </script>
 </body>
 </html>

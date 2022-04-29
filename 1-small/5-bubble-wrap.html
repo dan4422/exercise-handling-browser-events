@@ -7,10 +7,30 @@
 </head>
 <body>
   <!-- HTML goes here -->
-
+  <div>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+    <span class="bubble">⭕️</span>
+  </div>
   <script>
     // JavaScript goes here
+    const bubble = document.querySelectorAll('.bubble')
 
+    for (let i = 0; i < bubble.length; i ++) {
+      bubble[i].addEventListener('click', (e) => {
+        e.target.innerText = "❌"
+      })
+    }
   </script>
 </body>
 </html>
